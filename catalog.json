@@ -1,0 +1,200 @@
+{
+  "version": "5.2",
+  "layers": {
+    "L1": "Vehicle identity: make/model/generation/year/body/color",
+    "L2": "Compatibility: body type / chassis / wheel / clearance",
+    "L3": "Style profile: OEM+ / sport / JDM / luxury / off-road / wrap",
+    "L4": "Product catalog: package / price / render instruction",
+    "L5": "Commerce: match score / warning / quote readiness"
+  },
+  "products": [
+    {
+      "id": "a1",
+      "category": "Aero",
+      "icon": "🏁",
+      "name": "OEM+ Sport Kit",
+      "style": "Clean Sport",
+      "price": "฿18,900+",
+      "body": [
+        "sedan",
+        "hatchback",
+        "coupe",
+        "suv",
+        "crossover"
+      ],
+      "base": 96,
+      "prompt": "subtle OEM+ front lip and restrained side skirts"
+    },
+    {
+      "id": "a2",
+      "category": "Aero",
+      "icon": "◼️",
+      "name": "Carbon Lip + Side Skirt",
+      "style": "Carbon Street",
+      "price": "฿24,900+",
+      "body": [
+        "sedan",
+        "hatchback",
+        "coupe",
+        "suv",
+        "crossover"
+      ],
+      "base": 91,
+      "prompt": "realistic carbon-fiber front lip and side skirt extensions"
+    },
+    {
+      "id": "a3",
+      "category": "Aero",
+      "icon": "🔥",
+      "name": "Widebody Street",
+      "style": "Aggressive Street",
+      "price": "฿49,900+",
+      "body": [
+        "sedan",
+        "hatchback",
+        "coupe"
+      ],
+      "base": 78,
+      "prompt": "professionally fitted realistic street widebody arches"
+    },
+    {
+      "id": "w1",
+      "category": "Wheel",
+      "icon": "⚙️",
+      "name": "Forged Performance Wheels",
+      "style": "Flush Performance",
+      "price": "฿32,000+",
+      "body": [
+        "sedan",
+        "hatchback",
+        "coupe",
+        "suv",
+        "crossover"
+      ],
+      "base": 95,
+      "prompt": "premium forged wheels with realistic tire geometry"
+    },
+    {
+      "id": "w2",
+      "category": "Wheel",
+      "icon": "⭕",
+      "name": "TE37-style Motorsport",
+      "style": "JDM Motorsport",
+      "price": "฿38,000+",
+      "body": [
+        "sedan",
+        "hatchback",
+        "coupe"
+      ],
+      "base": 87,
+      "prompt": "six-spoke motorsport wheels inspired by classic JDM style"
+    },
+    {
+      "id": "w3",
+      "category": "Wheel",
+      "icon": "✦",
+      "name": "Premium Multi-spoke",
+      "style": "OEM+ Luxury",
+      "price": "฿29,000+",
+      "body": [
+        "sedan",
+        "hatchback",
+        "coupe",
+        "suv",
+        "crossover",
+        "van"
+      ],
+      "base": 93,
+      "prompt": "elegant premium multi-spoke alloy wheels"
+    },
+    {
+      "id": "o1",
+      "category": "Offroad",
+      "icon": "🏕️",
+      "name": "Adventure Rack + AT Tyres",
+      "style": "Overland",
+      "price": "฿35,000+",
+      "body": [
+        "suv",
+        "crossover",
+        "pickup"
+      ],
+      "base": 96,
+      "prompt": "subtle roof rack and realistic all-terrain tires"
+    },
+    {
+      "id": "o2",
+      "category": "Offroad",
+      "icon": "⛰️",
+      "name": "Protection Package",
+      "style": "Rugged",
+      "price": "฿42,000+",
+      "body": [
+        "suv",
+        "pickup"
+      ],
+      "base": 86,
+      "prompt": "practical rugged lower bumper protection treatment"
+    },
+    {
+      "id": "o3",
+      "category": "Offroad",
+      "icon": "🌲",
+      "name": "Camping Adventure",
+      "style": "Touring",
+      "price": "฿46,000+",
+      "body": [
+        "suv",
+        "crossover",
+        "pickup",
+        "van"
+      ],
+      "base": 90,
+      "prompt": "touring roof cargo solution with subtle adventure styling"
+    },
+    {
+      "id": "r1",
+      "category": "Wrap",
+      "icon": "🎨",
+      "name": "Satin Metallic Wrap",
+      "style": "Premium Satin",
+      "price": "฿28,000+",
+      "body": [
+        "all"
+      ],
+      "base": 98,
+      "prompt": "premium satin metallic wrap preserving trim and panel geometry"
+    },
+    {
+      "id": "r2",
+      "category": "Wrap",
+      "icon": "🏎️",
+      "name": "Motorsport Livery",
+      "style": "Racing",
+      "price": "฿16,000+",
+      "body": [
+        "sedan",
+        "hatchback",
+        "coupe"
+      ],
+      "base": 83,
+      "prompt": "tasteful modern racing livery without words or sponsor logos"
+    },
+    {
+      "id": "r3",
+      "category": "Wrap",
+      "icon": "◐",
+      "name": "Two-tone Premium",
+      "style": "Modern Clean",
+      "price": "฿22,000+",
+      "body": [
+        "suv",
+        "crossover",
+        "sedan",
+        "hatchback"
+      ],
+      "base": 97,
+      "prompt": "premium two-tone finish with contrasting roof and upper accents"
+    }
+  ]
+}

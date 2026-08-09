@@ -14,7 +14,7 @@ VISION_MODEL = os.getenv("VISION_MODEL", "gpt-5.6")
 IMAGE_MODEL = os.getenv("IMAGE_MODEL", "gpt-image-2")
 ALLOWED_ORIGINS = [x.strip() for x in os.getenv("ALLOWED_ORIGINS", "*").split(",") if x.strip()]
 
-app = FastAPI(title="CarBiz AI AutoMod API", version="5.1.0")
+app = FastAPI(title="CarBiz AI AutoMod API", version="5.2.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS if ALLOWED_ORIGINS != ["*"] else ["*"],
