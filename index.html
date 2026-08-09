@@ -1,31 +1,227 @@
-<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CarBiz AI AutoMod V5.3</title>
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CarBiz AI AutoMod V5.4 Studio</title>
 <style>
-:root{--bg:#070b10;--panel:#101722;--line:#263345;--text:#f7fafc;--muted:#94a3b8;--cyan:#24d7ff;--blue:#3b82f6;--green:#34d399;--amber:#fbbf24;--red:#fb7185}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 50% 0,#14263c 0,#070b10 43%);color:var(--text)}header{height:66px;padding:0 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;background:#090e14ed;position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}.brand{display:flex;gap:11px;align-items:center;font-weight:900}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#21d4fd,#376dff);display:grid;place-items:center;color:#04121a}.brand small{display:block;color:var(--muted);font-size:11px;font-weight:600}.api{font-size:11px;color:var(--muted)}.dot{color:var(--red)}.dot.on{color:var(--green)}main{max-width:1500px;margin:auto;padding:18px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}.step{border:1px solid var(--line);background:#0d141e;border-radius:13px;padding:11px 13px;color:var(--muted)}.step.on{border-color:#2589c5;color:#fff;background:#0f1d2b}.step b{font-size:13px;display:block}.step span{font-size:11px}.layout{display:grid;grid-template-columns:360px minmax(0,1fr) 330px;gap:14px}.panel{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#111924,#0d131b);overflow:hidden}.head{display:flex;justify-content:space-between;align-items:center;padding:13px 15px;border-bottom:1px solid var(--line);font-size:12px}.head span{color:var(--muted);font-size:10px}.body{padding:15px}.upload{display:block;border:1px dashed #415a76;border-radius:15px;background:#0a1119;padding:16px;text-align:center;cursor:pointer}.upload:hover{border-color:var(--cyan)}.upload input{display:none}.upload .ico{font-size:30px}.upload b{font-size:14px;display:block}.upload small,.muted{font-size:11px;color:var(--muted);line-height:1.55}.card{padding:13px;border:1px solid var(--line);border-radius:13px;background:#0a1119;margin-top:11px}.badges{display:flex;gap:6px;flex-wrap:wrap}.badge,.pill{font-size:10px;border:1px solid #2d4460;border-radius:99px;padding:4px 7px;color:#b8d5ef}.vehicle{font-size:22px;font-weight:900;margin:6px 0}.cats{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}.choice,.kit{border:1px solid var(--line);background:#101824;color:#fff;border-radius:11px;padding:10px;cursor:pointer}.choice.on,.kit.on{border-color:var(--cyan);box-shadow:inset 0 0 0 1px #24d7ff33}.kits{display:grid;gap:8px;margin-top:9px;max-height:390px;overflow:auto}.kit{text-align:left;display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:8px}.kit .ico{width:42px;height:42px;border-radius:10px;background:#182536;display:grid;place-items:center;font-size:20px}.kit b{display:block;font-size:12px}.kit small{display:block;font-size:9px;color:var(--muted);margin-top:2px}.score{font-size:10px;padding:5px 7px;border-radius:99px;border:1px solid #225a47;background:#0d2b22;color:#76edb5;white-space:nowrap}.score.warn{border-color:#665823;background:#2c260f;color:#f3d76a}.score.low{border-color:#71333d;background:#2d1419;color:#ff9cab}.stage{position:relative;min-height:650px;background:#05080d;display:grid;place-items:center;overflow:hidden}.stage:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:40px 40px}.stage img{position:relative;z-index:2;max-width:100%;max-height:650px;object-fit:contain;display:none}.empty{position:relative;z-index:2;text-align:center;color:var(--muted)}.empty .car{font-size:76px;filter:grayscale(1)}.chip{position:absolute;z-index:5;top:15px;left:15px;border:1px solid #1d5e79;background:#06151fdc;border-radius:12px;padding:9px 11px;font-size:10px;color:var(--muted)}.chip b{font-size:11px;color:var(--cyan)}.progress{height:5px;background:#142331;border-radius:99px;overflow:hidden;margin-top:7px}.progress i{height:100%;width:0;display:block;background:linear-gradient(90deg,var(--cyan),var(--green));transition:.25s}.tools{border-top:1px solid var(--line);background:#0a1118;padding:11px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#141d29;color:#fff;padding:10px 13px;border-radius:10px;font-weight:800;cursor:pointer}.btn.primary{border:0;background:linear-gradient(135deg,#0caed8,#386cf8)}.btn:disabled{opacity:.35;cursor:not-allowed}.summary{display:grid;gap:9px}.sum{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #1d2938;padding-bottom:9px;font-size:11px}.sum span{color:var(--muted)}.sum b{text-align:right}.price{font-size:21px!important;color:var(--cyan)}.note,.reco{padding:11px;border:1px solid #1c5368;background:#0a1821;border-radius:11px;color:#b8d7e5;font-size:10px;line-height:1.55}.error{margin-top:10px;display:none;padding:10px;border:1px solid #6e2634;background:#291018;color:#ffbac5;border-radius:10px;font-size:11px}.fitbar{height:7px;background:#172333;border-radius:99px;overflow:hidden}.fitbar i{display:block;height:100%;background:linear-gradient(90deg,#fbbf24,#34d399);width:0}.catalog-note{font-size:9px;color:#718096;margin-top:9px}.compare{position:absolute;z-index:4;right:15px;top:15px;padding:6px 8px;border-radius:8px;background:#0a1118cc;border:1px solid var(--line);font-size:9px;color:var(--muted)}
-@media(max-width:1000px){.layout{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.stage{min-height:480px}.stage img{max-height:480px}header{padding:0 12px}.api{display:none}main{padding:10px}.layout>section:nth-child(2){order:-1}.kits{max-height:none}}
-</style></head><body>
-<header><div class="brand"><div class="logo">AI</div><div>CarBiz AutoMod V5.3<small>Smart Fitment + Parts Catalog + AI Visualizer</small></div></div><div class="api"><span class="dot" id="apiDot">●</span> <span id="apiText">Checking backend…</span></div></header>
-<main><div class="steps"><div class="step on" id="step1"><b>1. Upload & Identify</b><span>AI วิเคราะห์รถจากภาพจริง</span></div><div class="step" id="step2"><b>2. Smart Fitment</b><span>จัดอันดับอะไหล่ตามรถที่ตรวจพบ</span></div><div class="step" id="step3"><b>3. AI Render</b><span>Preview Before / After</span></div></div>
-<div class="layout"><section class="panel"><div class="head"><b>YOUR CAR + PARTS</b><span>V5.3</span></div><div class="body">
-<label class="upload"><input id="file" type="file" accept="image/jpeg,image/png,image/webp"><div class="ico">📷</div><b>เลือกรูปรถ</b><small>JPG / PNG / WEBP · มุม 3/4 ชัดที่สุด</small></label>
-<div class="card"><div class="badges"><span class="badge" id="status">รอรูปภาพ</span><span class="badge" id="confidence">—</span></div><div class="vehicle" id="vehicle">ยังไม่พบรถ</div><div class="muted" id="meta">AI จะวิเคราะห์ make / model / generation / body / color</div></div>
-<div style="font-size:12px;font-weight:900;margin-top:15px">MODIFICATION TYPE</div><div class="cats"><button class="choice on" data-cat="Aero">Aero Kit</button><button class="choice" data-cat="Wheel">Wheels</button><button class="choice" data-cat="Offroad">Off-road</button><button class="choice" data-cat="Wrap">Wrap / Color</button></div><div class="kits" id="kits"></div><div class="catalog-note" id="catalogNote">Loading parts catalog…</div><div class="error" id="leftError"></div></div></section>
-<section class="panel"><div class="head"><b>KEY VISUAL / AI PREVIEW</b><span id="stageText">UPLOAD A CAR</span></div><div class="stage"><img id="mainImage" alt="vehicle preview"><div class="empty" id="empty"><div class="car">🚘</div><b>อัปโหลดรูปรถเพื่อเริ่ม</b><div class="muted">ระบบจะเก็บภาพต้นฉบับไว้สำหรับ Before</div></div><div class="chip"><b id="aiTitle">AI READY</b><br><span id="aiDetail">Waiting for image</span><div class="progress"><i id="bar"></i></div></div><div class="compare" id="compareLabel">ORIGINAL</div></div><div class="tools"><button class="btn" id="before" disabled>Before</button><button class="btn primary" id="render" disabled>✨ Render My Car</button><button class="btn" id="after" disabled>After</button></div></section>
-<aside class="panel"><div class="head"><b>MY BUILD</b><span>SMART FITMENT</span></div><div class="body summary"><div class="sum"><span>Vehicle</span><b id="sumVehicle">—</b></div><div class="sum"><span>Generation</span><b id="sumGen">—</b></div><div class="sum"><span>Part / Kit</span><b id="sumKit">—</b></div><div class="sum"><span>SKU</span><b id="sumSku">—</b></div><div class="sum"><span>Style</span><b id="sumStyle">—</b></div><div class="sum"><span>Fitment score</span><b id="sumFit">—</b></div><div class="fitbar"><i id="fitbar"></i></div><div class="reco" id="fitNote">อัปโหลดรถแล้วเลือกสินค้า ระบบจะคำนวณความเหมาะสมเบื้องต้น</div><div class="sum"><span>Estimated parts</span><b class="price" id="sumPrice">—</b></div><button class="btn primary" id="quote" disabled>ขอใบเสนอราคา</button><div class="note"><b>V5.3:</b> Smart Fitment เป็นคะแนนแนะนำ ไม่ใช่การรับรองทางวิศวกรรม ต้องตรวจ chassis/ปี/PCD/offset/clearance กับผู้ขายหรือช่างก่อนซื้อ รายการ CarBiz Select ใน starter catalog ยังไม่ใช่การยืนยันว่าสินค้าบุคคลที่สามมี stock จริง</div></div></aside></div></main>
-<script src="config.js"></script><script>
-const API_BASE=(window.CARBIZ_API_BASE||"").replace(/\/$/,""); const $=q=>document.querySelector(q), $$=q=>[...document.querySelectorAll(q)];
-let catalog={products:[],notice:""}; let state={file:null,original:null,after:null,vehicle:null,cat:"Aero",kit:null,score:null};
-const money=n=>new Intl.NumberFormat('th-TH',{style:'currency',currency:'THB',maximumFractionDigits:0}).format(n)+(n?' +':'');
-function step(n){[1,2,3].forEach(i=>$("#step"+i).classList.toggle("on",i===n))} function setProgress(p,t,d){$("#bar").style.width=p+"%";$("#aiTitle").textContent=t;$("#aiDetail").textContent=d} function error(m){$("#leftError").style.display=m?"block":"none";$("#leftError").textContent=m||""}
-function norm(s){return (s||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim()} function bodyKey(){let b=norm(state.vehicle?.body_type);if(b.includes('sport utility'))return'suv';if(b.includes('cross'))return'crossover';if(b.includes('hatch'))return'hatchback';if(b.includes('pick'))return'pickup';if(b.includes('saloon'))return'sedan';return b.split(' ')[0]||''}
-function fit(p){if(!state.vehicle)return {score:p.base,label:'Preview',note:'Upload a vehicle for model-aware scoring'};let s=p.base,b=bodyKey(),ok=p.body.includes('all')||p.body.some(x=>b.includes(x)||x.includes(b));if(!ok)s-=32;if(p.fitment==='universal')s=Math.max(s,94);if(p.fitment==='pcd_offset')s-=3;if(p.fitment==='specialist')s-=8;s=Math.max(35,Math.min(99,s));let label=s>=90?'High match':s>=75?'Verify fitment':'Low match';let note=p.fitment==='pcd_offset'?'ตรวจ PCD, offset, width, tyre และ clearance ก่อนสั่งซื้อ':p.fitment==='specialist'?'ต้องตรวจตัวถังและติดตั้งโดย specialist':'ตรวจปี/รุ่นย่อย/chassis กับผู้ขายหรือช่างก่อนซื้อ';if(!ok)note='Body type ของรถไม่ตรงกับการใช้งานหลักของสินค้านี้ — ไม่แนะนำจนกว่าจะตรวจ fitment';return{score:s,label,note}}
+:root{
+  --bg:#03070b;--glass:rgba(5,16,24,.78);--glass2:rgba(7,22,32,.90);
+  --line:#1d7698;--line2:#18445a;--cyan:#35ddff;--cyan2:#7bf1ff;
+  --orange:#ff9f43;--amber:#ffc15d;--green:#4df4ae;--red:#ff6b7d;
+  --text:#f7fbff;--muted:#97a9b8;--shadow:0 20px 60px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#02070b;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow:hidden}
+button,input{font:inherit}
+button{color:inherit}
+.app{position:relative;width:100vw;height:100dvh;min-height:620px;background:
+ radial-gradient(circle at 50% 25%,rgba(25,96,118,.25),transparent 26%),
+ linear-gradient(180deg,#071018 0,#02070b 100%);overflow:hidden}
+.app:before{content:"";position:absolute;inset:0;background:
+ linear-gradient(90deg,transparent 0 49.9%,rgba(53,221,255,.035) 50%,transparent 50.1%),
+ linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+ background-size:100% 100%,64px 64px,64px 64px;pointer-events:none}
+.topbar{position:absolute;z-index:30;left:28px;right:28px;top:20px;display:flex;align-items:flex-start;justify-content:space-between;pointer-events:none}
+.back-title,.version-pill,.ai-banner{pointer-events:auto}
+.back-title{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(8,24,35,.92),rgba(10,18,26,.84));border:1px solid #2a8eb5;border-radius:14px;padding:10px 14px;box-shadow:0 0 24px rgba(53,221,255,.12)}
+.back{width:34px;height:34px;border:1px solid var(--cyan);border-radius:9px;background:#0b1d28;color:var(--cyan);display:grid;place-items:center;font-size:25px;cursor:pointer}
+.back-title b{font-size:20px}.back-title small{display:block;color:var(--amber);font-size:10px;letter-spacing:.08em}
+.version-pill{border:1px solid #2a8eb5;border-radius:10px;background:#08141dcb;padding:8px 12px;color:#d9f7ff;font-weight:800;font-size:12px}
+.ai-banner{position:absolute;top:70px;left:50%;transform:translateX(-50%);z-index:25;min-width:420px;max-width:54vw;background:linear-gradient(135deg,rgba(10,27,38,.94),rgba(8,19,27,.87));border:1px solid #2ca9d4;border-radius:12px;padding:11px 16px;box-shadow:0 0 26px rgba(40,199,246,.14);display:flex;align-items:center;gap:12px}
+.ai-icon{width:48px;height:48px;border:1px solid var(--orange);border-radius:10px;display:grid;place-items:center;font-size:24px;font-weight:900;color:var(--cyan);background:#071620;box-shadow:inset 0 0 18px rgba(255,159,67,.08)}
+.ai-copy{min-width:0;flex:1}.ai-copy b{font-size:17px;letter-spacing:.02em}.ai-copy small{display:block;color:#c4d3dc;font-size:10px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ai-copy small strong{color:white}
+.progress{height:4px;background:#102632;border-radius:99px;overflow:hidden;margin-top:7px}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--green));transition:.3s}
+.api-state{font-size:9px;color:var(--green);white-space:nowrap}
+
+.hero{position:absolute;inset:0;display:grid;place-items:center;padding:95px 310px 75px 400px}
+.hero:before{content:"";position:absolute;inset:84px 230px 64px 365px;background:
+ radial-gradient(ellipse at center,rgba(21,64,80,.26),transparent 57%),
+ linear-gradient(135deg,rgba(5,12,17,.20),rgba(5,12,17,.55));border-radius:28px;pointer-events:none}
+.hero img{position:relative;z-index:3;max-width:100%;max-height:78vh;object-fit:contain;filter:drop-shadow(0 35px 36px rgba(0,0,0,.42));display:none}
+.empty{z-index:3;text-align:center;color:var(--muted)}.empty .car{font-size:110px;filter:grayscale(1);opacity:.55}.empty b{display:block;font-size:18px;color:#d6e4ed}
+.stage-chip{position:absolute;z-index:8;top:140px;right:270px;border:1px solid #2d91b8;border-radius:10px;background:#07151fdc;padding:8px 10px;font-size:10px;color:#bed4df}.stage-chip strong{color:var(--cyan)}
+.result-ribbon{position:absolute;z-index:9;top:154px;right:250px;transform:translateY(70px);display:none;background:linear-gradient(90deg,#0c2531e8,#10212ae8);border:1px solid #44ccea;color:#dffaff;padding:10px 18px;border-radius:10px;font-size:12px;font-weight:900;box-shadow:0 0 22px rgba(60,220,255,.12)}
+.result-ribbon.on{display:block}
+.result-ribbon span{color:var(--amber)}
+
+.left-stack{position:absolute;z-index:20;left:28px;top:116px;bottom:72px;width:340px;display:flex;flex-direction:column;gap:10px}
+.panel{background:linear-gradient(180deg,rgba(8,24,35,.90),rgba(4,14,22,.88));border:1px solid #237da0;border-radius:14px;box-shadow:var(--shadow);backdrop-filter:blur(10px);overflow:hidden}
+.panel-title{display:flex;align-items:center;justify-content:space-between;padding:10px 13px;border-bottom:1px solid rgba(54,156,194,.34)}.panel-title b{font-size:13px;letter-spacing:.05em}.panel-title span{font-size:9px;color:var(--muted)}
+.upload{display:block;margin:10px;padding:10px;border:1px dashed #377e99;border-radius:10px;text-align:center;background:#06131c;cursor:pointer}.upload input{display:none}.upload b{font-size:11px}.upload small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+.vehicle-box{padding:0 11px 10px}.badges{display:flex;gap:5px}.badge{font-size:8px;padding:3px 6px;border-radius:99px;border:1px solid #375469;color:#cfe4ee}.vehicle{font-weight:900;font-size:19px;margin-top:5px}.meta{font-size:9px;color:#9bb1bf;line-height:1.4}
+
+.cat-tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:9px}.cat{border:1px solid #235a73;background:#091824;border-radius:9px;padding:8px 6px;font-size:10px;font-weight:800;cursor:pointer}.cat.on{border-color:var(--orange);box-shadow:inset 0 0 0 1px rgba(255,159,67,.35),0 0 15px rgba(255,159,67,.07);color:#fff6e8}
+.parts{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:0 9px 9px;overflow:auto;min-height:0}
+.part{position:relative;min-height:103px;border:1px solid #256b88;background:#081722;border-radius:10px;padding:7px;cursor:pointer;text-align:left;overflow:hidden}.part.on{border-color:var(--orange);box-shadow:0 0 0 1px rgba(255,159,67,.33),0 0 16px rgba(255,159,67,.08)}
+.part .thumb{height:56px;border-radius:7px;background:linear-gradient(135deg,#1c3445,#09131b);display:grid;place-items:center;font-size:28px;border:1px solid #173e51}
+.part b{display:block;font-size:9px;margin-top:5px;line-height:1.1}.part small{display:block;font-size:7px;color:#aebec8;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.part .match{position:absolute;right:5px;top:5px;font-size:7px;padding:2px 4px;border-radius:99px;background:#0e382c;color:#73f6bc;border:1px solid #216e54}.part .match.low{background:#35181d;border-color:#7d3440;color:#ff9daf}
+.catalog-note{padding:0 11px 10px;color:#718898;font-size:8px;line-height:1.4}
+
+.right-tabs{position:absolute;z-index:21;right:26px;top:122px;bottom:150px;width:54px;display:flex;flex-direction:column;gap:8px}
+.side-tab{flex:1;border:1px solid #267b9f;background:#061722;color:#bfe4f2;border-radius:10px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;font-weight:900;letter-spacing:.08em;display:grid;place-items:center;cursor:pointer}
+.side-tab.on{border-color:var(--orange);color:#ffd8a4;background:#1e160e}
+.build-panel{position:absolute;z-index:20;right:92px;top:120px;width:270px;background:linear-gradient(180deg,rgba(8,24,35,.88),rgba(5,15,22,.9));border:1px solid #226985;border-radius:14px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+.build-head{padding:10px 12px;border-bottom:1px solid #18445a;display:flex;justify-content:space-between}.build-head b{font-size:12px}.build-head span{font-size:8px;color:var(--green)}
+.build-body{padding:10px}.sum{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:9px}.sum span{color:#90a6b4}.sum b{text-align:right;max-width:145px}
+.fitbar{height:5px;background:#10232d;border-radius:99px;overflow:hidden;margin:8px 0}.fitbar i{height:100%;display:block;width:0;background:linear-gradient(90deg,var(--orange),var(--green))}
+.price{font-size:18px!important;color:var(--cyan)}.fit-note{font-size:8px;color:#b9ceda;line-height:1.4;padding:7px;border:1px solid #1a5369;border-radius:8px;background:#071722;margin-top:7px}
+
+.bottom-controls{position:absolute;z-index:24;left:50%;bottom:22px;transform:translateX(-50%);display:flex;align-items:center;gap:8px}
+.btn{border:1px solid #2b6e89;background:#081925;border-radius:10px;padding:10px 15px;color:white;font-weight:900;font-size:10px;cursor:pointer}
+.btn.primary{min-width:210px;border-color:#35d7ff;background:linear-gradient(135deg,#0b8fb6,#1767e9);box-shadow:0 0 22px rgba(53,221,255,.14)}
+.btn.confirm{border-color:#3dc7e5;background:#0b2430}.btn:disabled{opacity:.35;cursor:not-allowed}
+.error{position:absolute;z-index:40;left:50%;bottom:78px;transform:translateX(-50%);display:none;padding:9px 14px;border:1px solid #7a3140;border-radius:9px;background:#32141b;color:#ffb7c2;font-size:9px;max-width:520px}
+.toast{position:absolute;z-index:40;left:50%;bottom:78px;transform:translateX(-50%);display:none;padding:9px 14px;border:1px solid #1f6b59;border-radius:9px;background:#0b241d;color:#9cf7cf;font-size:9px}
+
+@media(max-width:1100px){
+ .left-stack{width:300px;left:14px}.build-panel{right:72px;width:230px}.right-tabs{right:12px}.hero{padding-left:330px;padding-right:250px}.ai-banner{max-width:48vw;min-width:330px}
+}
+@media(max-width:820px){
+ html,body{overflow:auto}.app{min-height:100dvh;height:auto;overflow:visible;padding-bottom:90px}
+ .topbar{position:sticky;top:0;padding:8px 10px;left:auto;right:auto;background:#071019ef}.back-title b{font-size:15px}.back-title small,.version-pill{display:none}
+ .ai-banner{position:relative;top:auto;left:auto;transform:none;min-width:0;max-width:none;margin:10px}.hero{position:relative;inset:auto;padding:15px 10px;min-height:390px}.hero:before{inset:10px}
+ .hero img{max-height:360px}.stage-chip{top:20px;right:20px}.result-ribbon{top:60px;right:20px}
+ .left-stack{position:relative;left:auto;top:auto;bottom:auto;width:auto;margin:10px}.build-panel{position:relative;right:auto;top:auto;width:auto;margin:10px}.right-tabs{position:relative;right:auto;top:auto;bottom:auto;width:auto;height:48px;margin:10px;flex-direction:row}.side-tab{writing-mode:horizontal-tb;transform:none}
+ .parts{grid-template-columns:repeat(3,1fr)}.bottom-controls{position:fixed;bottom:8px;left:8px;right:8px;transform:none;justify-content:center;background:#061018e8;padding:8px;border:1px solid #153c4e;border-radius:12px}.btn.primary{min-width:150px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="back-title"><button class="back" onclick="history.back()">‹</button><div><b>วิเคราะห์ AI: เลือกใช้ชุดแต่ง</b><small>CARBIZ AUTOMOD STUDIO</small></div></div>
+    <div class="version-pill">AI AutoMod V5.4</div>
+  </div>
+
+  <div class="ai-banner">
+    <div class="ai-icon">AI</div>
+    <div class="ai-copy"><b id="aiTitle">AI READY</b><small id="aiDetail">VEHICLE: <strong>WAITING FOR IMAGE</strong></small><div class="progress"><i id="bar"></i></div></div>
+    <div class="api-state"><span id="apiDot">●</span> <span id="apiText">checking</span></div>
+  </div>
+
+  <div class="hero">
+    <img id="mainImage" alt="vehicle preview">
+    <div class="empty" id="empty"><div class="car">🚘</div><b>อัปโหลดรูปรถเพื่อเริ่มแต่ง</b><small>AI จะวิเคราะห์รุ่นและเลือกชุดแต่งที่เหมาะสม</small></div>
+    <div class="stage-chip"><strong id="stageText">STANDBY</strong><br><span id="compareLabel">ORIGINAL</span></div>
+    <div class="result-ribbon" id="resultRibbon">STAGE COMPLETE: <span id="resultText">PREVIEW READY</span></div>
+  </div>
+
+  <div class="left-stack">
+    <section class="panel">
+      <div class="panel-title"><b>VEHICLE</b><span>AI VISION</span></div>
+      <label class="upload"><input id="file" type="file" accept="image/jpeg,image/png,image/webp"><b>📷 เลือกรูปรถ</b><small>JPG / PNG / WEBP · มุม 3/4 ชัดที่สุด</small></label>
+      <div class="vehicle-box"><div class="badges"><span class="badge" id="status">รอรูปภาพ</span><span class="badge" id="confidence">—</span></div><div class="vehicle" id="vehicle">ยังไม่พบรถ</div><div class="meta" id="meta">AI จะตรวจ make / model / generation / body / color</div></div>
+    </section>
+
+    <section class="panel" style="min-height:0;flex:1;display:flex;flex-direction:column">
+      <div class="panel-title"><b>MODIFICATION</b><span id="catalogVersion">CATALOG</span></div>
+      <div class="cat-tabs">
+        <button class="cat on" data-cat="Aero">AERO KITS</button>
+        <button class="cat" data-cat="Wheel">WHEELS</button>
+        <button class="cat" data-cat="Offroad">OFF-ROAD</button>
+        <button class="cat" data-cat="Wrap">GRAPHICS</button>
+      </div>
+      <div class="parts" id="kits"></div>
+      <div class="catalog-note" id="catalogNote">Loading catalog…</div>
+    </section>
+  </div>
+
+  <aside class="build-panel">
+    <div class="build-head"><b>MY BUILD</b><span id="fitStatus">LIVE</span></div>
+    <div class="build-body">
+      <div class="sum"><span>Vehicle</span><b id="sumVehicle">—</b></div>
+      <div class="sum"><span>Generation</span><b id="sumGen">—</b></div>
+      <div class="sum"><span>Part / Kit</span><b id="sumKit">—</b></div>
+      <div class="sum"><span>SKU</span><b id="sumSku">—</b></div>
+      <div class="sum"><span>Style</span><b id="sumStyle">—</b></div>
+      <div class="sum"><span>Fitment</span><b id="sumFit">—</b></div>
+      <div class="fitbar"><i id="fitbar"></i></div>
+      <div class="fit-note" id="fitNote">อัปโหลดรถและเลือกชุดแต่งเพื่อคำนวณ Smart Fitment</div>
+      <div class="sum" style="margin-top:8px"><span>Estimated parts</span><b class="price" id="sumPrice">—</b></div>
+      <button class="btn confirm" id="quote" disabled style="width:100%;margin-top:8px">ยืนยันการเปลี่ยนแปลง / ขอราคา</button>
+    </div>
+  </aside>
+
+  <nav class="right-tabs">
+    <button class="side-tab" data-side="Performance">PERFORMANCE</button>
+    <button class="side-tab" data-side="Paint">PAINT</button>
+    <button class="side-tab" data-side="Interior">INTERIOR</button>
+    <button class="side-tab on" data-side="Visuals">VISUALS</button>
+  </nav>
+
+  <div class="bottom-controls">
+    <button class="btn" id="before" disabled>BEFORE</button>
+    <button class="btn primary" id="render" disabled>✨ APPLY & AI RENDER</button>
+    <button class="btn" id="after" disabled>AFTER</button>
+  </div>
+  <div class="error" id="leftError"></div>
+  <div class="toast" id="toast"></div>
+</div>
+
+<script src="config.js"></script>
+<script>
+const API_BASE=(window.CARBIZ_API_BASE||"").replace(/\/$/,"");
+const $=q=>document.querySelector(q), $$=q=>[...document.querySelectorAll(q)];
+let catalog={products:[],notice:""}, state={file:null,original:null,after:null,vehicle:null,cat:"Aero",kit:null};
+const money=n=>new Intl.NumberFormat('th-TH',{style:'currency',currency:'THB',maximumFractionDigits:0}).format(n||0)+(n?' +':'');
+function norm(s){return (s||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim()}
+function bodyKey(){let b=norm(state.vehicle?.body_type);if(b.includes('sport utility'))return'suv';if(b.includes('cross'))return'crossover';if(b.includes('hatch'))return'hatchback';if(b.includes('pick'))return'pickup';if(b.includes('saloon'))return'sedan';return b.split(' ')[0]||''}
+function fit(p){
+ if(!state.vehicle)return{score:p.base||80,label:'Preview',note:'Upload a vehicle for model-aware scoring'};
+ let s=p.base||80,b=bodyKey(),ok=(p.body||[]).includes('all')||(p.body||[]).some(x=>b.includes(x)||x.includes(b));
+ if(!ok)s-=32;if(p.fitment==='universal')s=Math.max(s,94);if(p.fitment==='pcd_offset')s-=3;if(p.fitment==='specialist')s-=8;
+ s=Math.max(35,Math.min(99,s));let label=s>=90?'HIGH':s>=75?'VERIFY':'LOW';
+ let note=p.fitment==='pcd_offset'?'ตรวจ PCD / offset / width / tyre / clearance ก่อนสั่งซื้อ':p.fitment==='specialist'?'ต้องตรวจตัวถังและติดตั้งโดย specialist':'ตรวจปี / รุ่นย่อย / chassis กับผู้ขายหรือช่างก่อนซื้อ';
+ if(!ok)note='Body type ไม่ตรงกับการใช้งานหลักของสินค้านี้ — ไม่แนะนำจนกว่าจะตรวจ fitment';
+ return{score:s,label,note}
+}
+function error(m){$("#leftError").style.display=m?"block":"none";$("#leftError").textContent=m||""}
+function toast(m){$("#toast").textContent=m;$("#toast").style.display='block';setTimeout(()=>$("#toast").style.display='none',1800)}
+function setProgress(p,title,detail){$("#bar").style.width=p+"%";$("#aiTitle").textContent=title;$("#aiDetail").innerHTML=detail}
 function products(){return catalog.products.filter(p=>p.category===state.cat).sort((a,b)=>fit(b).score-fit(a).score)}
-function kits(){let ps=products();$("#kits").innerHTML=ps.map(p=>{let f=fit(p),cl=f.score>=90?'':f.score>=75?'warn':'low';return `<button class="kit ${state.kit?.id===p.id?'on':''}" data-id="${p.id}"><span class="ico">${p.icon||'🔧'}</span><span><b>${p.name}</b><small>${p.brand} · ${p.style}<br>${money(p.price_thb)} · ${p.sku}</small></span><span class="score ${cl}">${f.score}%</span></button>`}).join('')||'<div class="muted">ไม่มีรายการในหมวดนี้</div>';$$('.kit').forEach(x=>x.onclick=()=>{state.kit=catalog.products.find(p=>p.id===x.dataset.id);state.score=fit(state.kit);kits();summary();step(2);$("#render").disabled=!(state.file&&state.vehicle);})}
-function summary(){let v=state.vehicle,p=state.kit,f=p?fit(p):null;$("#sumVehicle").textContent=v?`${v.make} ${v.model}`:'—';$("#sumGen").textContent=v?.generation||v?.year||'—';$("#sumKit").textContent=p?.name||'—';$("#sumSku").textContent=p?.sku||'—';$("#sumStyle").textContent=p?.style||'—';$("#sumFit").textContent=f?`${f.score}% · ${f.label}`:'—';$("#fitbar").style.width=(f?.score||0)+'%';$("#fitNote").textContent=f?.note||'อัปโหลดรถแล้วเลือกสินค้า ระบบจะคำนวณความเหมาะสมเบื้องต้น';$("#sumPrice").textContent=p?money(p.price_thb):'—';$("#quote").disabled=!(v&&p)}
-async function loadCatalog(){try{let r=await fetch('catalog.json?'+Date.now());catalog=await r.json();$("#catalogNote").textContent=`Catalog v${catalog.version} · ${catalog.notice}`;kits()}catch(e){error('โหลด catalog.json ไม่สำเร็จ')}}
-async function health(){if(!API_BASE){$("#apiText").textContent='Set backend URL in config.js';return}try{let r=await fetch(API_BASE+'/health');let d=await r.json();if(!r.ok)throw 0;$("#apiDot").classList.add('on');$("#apiText").textContent=`AI backend online · ${d.service||''}`}catch(e){$("#apiText").textContent='Backend offline / URL incorrect'}}
-$("#file").onchange=async e=>{let f=e.target.files?.[0];if(!f)return;error('');state.file=f;state.original=URL.createObjectURL(f);state.after=null;state.vehicle=null;state.kit=null;$("#mainImage").src=state.original;$("#mainImage").style.display='block';$("#empty").style.display='none';$("#compareLabel").textContent='ORIGINAL';$("#before").disabled=false;$("#after").disabled=true;$("#render").disabled=true;$("#stageText").textContent='ANALYZING';$("#status").textContent='AI กำลังวิเคราะห์';$("#confidence").textContent='—';$("#vehicle").textContent='กำลังตรวจรถ…';$("#meta").textContent='กำลังอ่านรายละเอียดจากภาพ';setProgress(45,'AI VISION','Detecting vehicle identity');if(!API_BASE){error('ยังไม่ได้ตั้ง Backend URL ใน config.js');return}try{let fd=new FormData();fd.append('image',f);let r=await fetch(API_BASE+'/api/identify',{method:'POST',body:fd});let d=await r.json();if(!r.ok)throw new Error(d.detail||'Identify failed');state.vehicle=d;$("#vehicle").textContent=`${d.make} ${d.model}`;$("#meta").textContent=[d.year,d.generation,d.body_type,d.color].filter(Boolean).join(' · ');$("#status").textContent='AI identified';$("#confidence").textContent=Math.round((d.confidence||0)*100)+'% confidence';$("#stageText").textContent='SMART FITMENT READY';setProgress(100,'IDENTITY READY',`${d.make} ${d.model}`);setTimeout(()=>$("#bar").style.width='0%',700);kits();summary();step(2)}catch(err){error(err.message);$("#status").textContent='วิเคราะห์ไม่สำเร็จ';setProgress(0,'AI ERROR',err.message)}};
+function kits(){
+ const ps=products();
+ $("#kits").innerHTML=ps.map(p=>{const f=fit(p),cl=f.score<75?'low':'';return `<button class="part ${state.kit?.id===p.id?'on':''}" data-id="${p.id}">
+   <span class="match ${cl}">${f.score}%</span><span class="thumb">${p.icon||'🔧'}</span><b>${p.name}</b><small>${p.brand||'CarBiz'} · ${p.style}</small></button>`}).join('')||'<div class="meta">ไม่มีรายการในหมวดนี้</div>';
+ $$(".part").forEach(x=>x.onclick=()=>{state.kit=catalog.products.find(p=>p.id===x.dataset.id);kits();summary();$("#render").disabled=!(state.file&&state.vehicle);toast(`Selected: ${state.kit.name}`)})
+}
+function summary(){
+ const v=state.vehicle,p=state.kit,f=p?fit(p):null;
+ $("#sumVehicle").textContent=v?`${v.make} ${v.model}`:'—';$("#sumGen").textContent=v?.generation||v?.year||'—';$("#sumKit").textContent=p?.name||'—';$("#sumSku").textContent=p?.sku||'—';$("#sumStyle").textContent=p?.style||'—';$("#sumFit").textContent=f?`${f.score}% · ${f.label}`:'—';$("#fitbar").style.width=(f?.score||0)+'%';$("#fitNote").textContent=f?.note||'อัปโหลดรถและเลือกชุดแต่งเพื่อคำนวณ Smart Fitment';$("#sumPrice").textContent=p?money(p.price_thb):'—';$("#quote").disabled=!(v&&p);$("#fitStatus").textContent=f?f.label:'LIVE'
+}
+async function loadCatalog(){try{let r=await fetch('catalog.json?'+Date.now());catalog=await r.json();$("#catalogVersion").textContent=`V${catalog.version||'5.4'}`;$("#catalogNote").textContent=catalog.notice||'Starter catalog';kits()}catch(e){error('โหลด catalog.json ไม่สำเร็จ')}}
+async function health(){
+ if(!API_BASE){$("#apiText").textContent='backend URL missing';return}
+ try{let r=await fetch(API_BASE+'/health');let d=await r.json();if(!r.ok)throw 0;$("#apiText").textContent='AI backend online';$("#apiDot").style.color='var(--green)'}catch(e){$("#apiText").textContent='backend offline';$("#apiDot").style.color='var(--red)'}
+}
+$("#file").onchange=async e=>{
+ const f=e.target.files?.[0];if(!f)return;error('');state.file=f;state.original=URL.createObjectURL(f);state.after=null;state.vehicle=null;state.kit=null;
+ $("#mainImage").src=state.original;$("#mainImage").style.display='block';$("#empty").style.display='none';$("#compareLabel").textContent='ORIGINAL';$("#resultRibbon").classList.remove('on');$("#before").disabled=false;$("#after").disabled=true;$("#render").disabled=true;
+ $("#status").textContent='AI analyzing';$("#confidence").textContent='—';$("#vehicle").textContent='กำลังตรวจรถ…';$("#meta").textContent='Reading vehicle identity from uploaded image';$("#stageText").textContent='AI ANALYZING';
+ setProgress(42,'AI ANALYZING…','VEHICLE: <strong>DETECTING MAKE / MODEL / GENERATION</strong>');
+ try{
+   const fd=new FormData();fd.append('image',f);const r=await fetch(API_BASE+'/api/identify',{method:'POST',body:fd});const d=await r.json();if(!r.ok)throw new Error(d.detail||'Identify failed');
+   state.vehicle=d;$("#vehicle").textContent=`${d.make} ${d.model}`;$("#meta").textContent=[d.year,d.generation,d.body_type,d.color].filter(Boolean).join(' · ');$("#status").textContent='AI identified';$("#confidence").textContent=Math.round((d.confidence||0)*100)+'% confidence';$("#stageText").textContent='SMART FITMENT READY';
+   setProgress(100,'AI READY',`VEHICLE: <strong>${d.make} ${d.model}</strong> | MODEL: <strong>${d.generation||d.year||'—'}</strong> | COLOR: <strong>${d.color||'—'}</strong>`);setTimeout(()=>$("#bar").style.width='0%',700);kits();summary();
+ }catch(err){error(err.message);$("#status").textContent='Identify failed';setProgress(0,'AI ERROR',err.message)}
+};
 $$('[data-cat]').forEach(b=>b.onclick=()=>{$$('[data-cat]').forEach(x=>x.classList.remove('on'));b.classList.add('on');state.cat=b.dataset.cat;state.kit=null;kits();summary()});
-$("#render").onclick=async()=>{if(!state.file||!state.kit||!state.vehicle)return;error('');$("#render").disabled=true;$("#stageText").textContent='AI RENDERING';setProgress(55,'AI RENDERING','Editing selected parts only');try{let fd=new FormData();fd.append('image',state.file);fd.append('kit',`${state.kit.brand} ${state.kit.name} (${state.kit.sku})`);fd.append('style',state.kit.style+'; '+state.kit.prompt);fd.append('vehicle_json',JSON.stringify(state.vehicle));let r=await fetch(API_BASE+'/api/render',{method:'POST',body:fd});let d=await r.json();if(!r.ok)throw new Error(d.detail||'Render failed');state.after=d.image_data_url;$("#mainImage").src=state.after;$("#compareLabel").textContent='AFTER · AI PREVIEW';$("#after").disabled=false;$("#stageText").textContent='AI PREVIEW READY';setProgress(100,'RENDER COMPLETE',state.kit.name);setTimeout(()=>$("#bar").style.width='0%',700);step(3)}catch(err){error(err.message);setProgress(0,'RENDER ERROR',err.message)}finally{$("#render").disabled=false}};
-$("#before").onclick=()=>{if(state.original){$("#mainImage").src=state.original;$("#compareLabel").textContent='ORIGINAL'}};$("#after").onclick=()=>{if(state.after){$("#mainImage").src=state.after;$("#compareLabel").textContent='AFTER · AI PREVIEW'}};$("#quote").onclick=()=>alert(`CarBiz Quote Request\n${state.vehicle.make} ${state.vehicle.model}\n${state.kit.name} · ${state.kit.sku}\nFitment score: ${fit(state.kit).score}%\nEstimate: ${money(state.kit.price_thb)}\n\nFinal fitment and price require supplier/installer verification.`);
+$$('[data-side]').forEach(b=>b.onclick=()=>{$$('[data-side]').forEach(x=>x.classList.remove('on'));b.classList.add('on');toast(`${b.dataset.side} module selected`)});
+$("#render").onclick=async()=>{
+ if(!state.file||!state.kit||!state.vehicle)return;error('');$("#render").disabled=true;$("#stageText").textContent='AI RENDERING';$("#resultRibbon").classList.remove('on');setProgress(55,'AI RENDERING…',`APPLYING: <strong>${state.kit.name}</strong>`);
+ try{
+   const fd=new FormData();fd.append('image',state.file);fd.append('kit',`${state.kit.brand} ${state.kit.name} (${state.kit.sku})`);fd.append('style',state.kit.style+'; '+state.kit.prompt);fd.append('vehicle_json',JSON.stringify(state.vehicle));
+   const r=await fetch(API_BASE+'/api/render',{method:'POST',body:fd});const d=await r.json();if(!r.ok)throw new Error(d.detail||'Render failed');
+   state.after=d.image_data_url;$("#mainImage").src=state.after;$("#compareLabel").textContent='AFTER · AI PREVIEW';$("#after").disabled=false;$("#stageText").textContent='RENDER COMPLETE';$("#resultText").textContent=`${state.kit.name.toUpperCase()} APPLIED`;$("#resultRibbon").classList.add('on');setProgress(100,'RENDER COMPLETE',`VEHICLE: <strong>${state.vehicle.make} ${state.vehicle.model}</strong> | KIT: <strong>${state.kit.name}</strong>`);setTimeout(()=>$("#bar").style.width='0%',700)
+ }catch(err){error(err.message);setProgress(0,'RENDER ERROR',err.message)}finally{$("#render").disabled=false}
+};
+$("#before").onclick=()=>{if(state.original){$("#mainImage").src=state.original;$("#compareLabel").textContent='ORIGINAL';$("#resultRibbon").classList.remove('on')}};
+$("#after").onclick=()=>{if(state.after){$("#mainImage").src=state.after;$("#compareLabel").textContent='AFTER · AI PREVIEW';$("#resultRibbon").classList.add('on')}};
+$("#quote").onclick=()=>toast('Build saved — quote workflow ready for next version');
 loadCatalog();health();
-</script></body></html>
+</script>
+</body>
+</html>
