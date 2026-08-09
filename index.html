@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CarBiz AI AutoMod V5.1</title>
+<style>
+:root{--bg:#070b10;--panel:#101722;--line:#263345;--text:#f7fafc;--muted:#94a3b8;--cyan:#24d7ff;--blue:#3b82f6;--green:#34d399;--red:#fb7185}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 50% 0,#14263c 0,#070b10 43%);color:var(--text)}
+header{height:66px;padding:0 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;background:#090e14e8;position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}
+.brand{display:flex;gap:11px;align-items:center;font-weight:900}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#21d4fd,#376dff);display:grid;place-items:center;color:#04121a}.brand small{display:block;color:var(--muted);font-size:11px;font-weight:600}
+.api{font-size:11px;color:var(--muted)}.dot{color:var(--red)}.dot.on{color:var(--green)}
+main{max-width:1500px;margin:auto;padding:18px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}.step{border:1px solid var(--line);background:#0d141e;border-radius:13px;padding:11px 13px;color:var(--muted)}.step.on{border-color:#2589c5;color:white;background:#0f1d2b}.step b{font-size:13px;display:block}.step span{font-size:11px}
+.layout{display:grid;grid-template-columns:335px minmax(0,1fr) 330px;gap:14px}.panel{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#111924,#0d131b);overflow:hidden}.head{display:flex;justify-content:space-between;align-items:center;padding:13px 15px;border-bottom:1px solid var(--line);font-size:12px}.head span{color:var(--muted);font-size:10px}.body{padding:15px}
+.upload{display:block;border:1px dashed #415a76;border-radius:15px;background:#0a1119;padding:16px;text-align:center;cursor:pointer}.upload:hover{border-color:var(--cyan)}.upload input{display:none}.upload .ico{font-size:30px}.upload b{font-size:14px;display:block}.upload small{font-size:11px;color:var(--muted)}
+.card{padding:13px;border:1px solid var(--line);border-radius:13px;background:#0a1119;margin-top:11px}.badges{display:flex;gap:6px;flex-wrap:wrap}.badge{font-size:10px;border:1px solid #2d4460;border-radius:99px;padding:4px 7px;color:#b8d5ef}.vehicle{font-size:22px;font-weight:900;margin:6px 0}.muted{font-size:11px;color:var(--muted);line-height:1.55}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}.choice,.kit{border:1px solid var(--line);background:#101824;color:white;border-radius:11px;padding:10px;cursor:pointer}.choice.on,.kit.on{border-color:var(--cyan);box-shadow:inset 0 0 0 1px #24d7ff33}
+.kits{display:grid;gap:8px;margin-top:9px}.kit{text-align:left}.kit b{display:block;font-size:12px}.kit small{font-size:10px;color:var(--muted)}
+.stage{position:relative;min-height:650px;background:#05080d;display:grid;place-items:center;overflow:hidden}.stage:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:40px 40px}.stage img{position:relative;z-index:2;max-width:100%;max-height:650px;object-fit:contain;display:none}.empty{position:relative;z-index:2;text-align:center;color:var(--muted)}.empty .car{font-size:76px;filter:grayscale(1)}
+.chip{position:absolute;z-index:5;top:15px;left:15px;border:1px solid #1d5e79;background:#06151fdc;border-radius:12px;padding:9px 11px;font-size:10px;color:var(--muted)}.chip b{font-size:11px;color:var(--cyan)}.progress{height:5px;background:#142331;border-radius:99px;overflow:hidden;margin-top:7px}.progress i{height:100%;width:0;display:block;background:linear-gradient(90deg,var(--cyan),var(--green));transition:.25s}
+.tools{border-top:1px solid var(--line);background:#0a1118;padding:11px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#141d29;color:white;padding:10px 13px;border-radius:10px;font-weight:800;cursor:pointer}.btn.primary{border:0;background:linear-gradient(135deg,#0caed8,#386cf8)}.btn:disabled{opacity:.35;cursor:not-allowed}
+.summary{display:grid;gap:9px}.sum{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #1d2938;padding-bottom:9px;font-size:11px}.sum span{color:var(--muted)}.sum b{text-align:right}.price{font-size:21px!important;color:var(--cyan)}.note{padding:11px;border:1px solid #1c5368;background:#0a1821;border-radius:11px;color:#b8d7e5;font-size:10px;line-height:1.55}
+.error{margin-top:10px;display:none;padding:10px;border:1px solid #6e2634;background:#291018;color:#ffbac5;border-radius:10px;font-size:11px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.stage{min-height:480px}.stage img{max-height:480px}header{padding:0 12px}.api{display:none}main{padding:10px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="logo">AI</div><div>CarBiz AutoMod V5.1<small>Real Vision + Real Image Render architecture</small></div></div>
+  <div class="api"><span class="dot" id="apiDot">●</span> <span id="apiText">Checking backend…</span></div>
+</header>
+<main>
+  <div class="steps">
+    <div class="step on" id="step1"><b>1. Upload & Identify</b><span>อัปโหลดรถจริงและให้ AI วิเคราะห์</span></div>
+    <div class="step" id="step2"><b>2. Choose Modification</b><span>เลือกชุดแต่งตามสไตล์</span></div>
+    <div class="step" id="step3"><b>3. AI Render</b><span>สร้างภาพ Before / After</span></div>
+  </div>
+
+  <div class="layout">
+    <section class="panel">
+      <div class="head"><b>YOUR CAR</b><span>AI VISION</span></div>
+      <div class="body">
+        <label class="upload">
+          <input id="file" type="file" accept="image/jpeg,image/png,image/webp">
+          <div class="ico">📷</div><b>เลือกรูปรถ</b><small>JPG / PNG / WEBP · มุม 3/4 ชัดที่สุด</small>
+        </label>
+        <div class="card">
+          <div class="badges"><span class="badge" id="status">รอรูปภาพ</span><span class="badge" id="confidence">—</span></div>
+          <div class="vehicle" id="vehicle">ยังไม่พบรถ</div>
+          <div class="muted" id="meta">AI จะวิเคราะห์ make / model / generation / body / color</div>
+        </div>
+        <div style="font-size:12px;font-weight:900;margin-top:15px">MODIFICATION TYPE</div>
+        <div class="cats">
+          <button class="choice on" data-cat="Aero">Aero Kit</button>
+          <button class="choice" data-cat="Wheel">Wheels</button>
+          <button class="choice" data-cat="Offroad">Off-road</button>
+          <button class="choice" data-cat="Wrap">Wrap / Color</button>
+        </div>
+        <div class="kits" id="kits"></div>
+        <div class="error" id="leftError"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="head"><b>KEY VISUAL / AI PREVIEW</b><span id="stageText">UPLOAD A CAR</span></div>
+      <div class="stage">
+        <img id="mainImage" alt="vehicle preview">
+        <div class="empty" id="empty"><div class="car">🚘</div><b>อัปโหลดรูปรถเพื่อเริ่ม</b><div class="muted">ภาพต้นฉบับจะถูกเก็บไว้สำหรับ Before</div></div>
+        <div class="chip"><b id="aiTitle">AI READY</b><br><span id="aiDetail">Waiting for image</span><div class="progress"><i id="bar"></i></div></div>
+      </div>
+      <div class="tools">
+        <button class="btn" id="before" disabled>Before</button>
+        <button class="btn primary" id="render" disabled>✨ AI Render Selected Kit</button>
+        <button class="btn" id="after" disabled>After</button>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="head"><b>BUILD SUMMARY</b><span>LIVE</span></div>
+      <div class="body summary">
+        <div class="sum"><span>Vehicle</span><b id="sumVehicle">—</b></div>
+        <div class="sum"><span>Generation</span><b id="sumGen">—</b></div>
+        <div class="sum"><span>Selected kit</span><b id="sumKit">—</b></div>
+        <div class="sum"><span>Style</span><b id="sumStyle">—</b></div>
+        <div class="sum"><span>Fitment</span><b id="sumFit">รอเลือกชุดแต่ง</b></div>
+        <div class="sum"><span>Estimated parts</span><b class="price" id="sumPrice">—</b></div>
+        <button class="btn primary" id="quote" disabled>ขอใบเสนอราคา</button>
+        <div class="note"><b>V5.1:</b> API key อยู่บน backend เท่านั้น หน้าเว็บไม่มี key. AI Render พยายามรักษารถเดิม มุมกล้อง แสง ฉาก และเปลี่ยนเฉพาะชุดแต่งที่เลือก</div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script src="config.js"></script>
+<script>
+const API_BASE=(window.CARBIZ_API_BASE||"").replace(/\/$/,"");
+const catalog={
+Aero:[
+ {name:"OEM+ Sport Kit",style:"Clean sport / factory+",price:"฿18,900+",fit:"Model-specific verification"},
+ {name:"Carbon Front Lip + Side Skirt",style:"Carbon street",price:"฿24,900+",fit:"Model-specific verification"},
+ {name:"Widebody Street Package",style:"JDM / aggressive",price:"฿49,900+",fit:"Bodywork verification"}
+],
+Wheel:[
+ {name:"Forged Performance Wheels",style:"Flush performance",price:"฿32,000+",fit:"Verify PCD / offset"},
+ {name:"TE37-style Motorsport",style:"JDM motorsport",price:"฿38,000+",fit:"Verify PCD / offset"},
+ {name:"Premium Multi-spoke",style:"OEM+",price:"฿29,000+",fit:"Verify PCD / offset"}
+],
+Offroad:[
+ {name:"Adventure Rack + AT Tyres",style:"Overland",price:"฿35,000+",fit:"SUV / pickup"},
+ {name:"Off-road Bumper Package",style:"Rugged",price:"฿42,000+",fit:"SUV / pickup"},
+ {name:"Camping Adventure Package",style:"Touring",price:"฿46,000+",fit:"Roof-load verification"}
+],
+Wrap:[
+ {name:"Satin Metallic Wrap",style:"Premium satin",price:"฿28,000+",fit:"Universal"},
+ {name:"Motorsport Livery",style:"Racing",price:"฿16,000+",fit:"Universal"},
+ {name:"Two-tone Premium",style:"Modern clean",price:"฿22,000+",fit:"Universal"}
+]};
+let state={file:null,original:null,after:null,vehicle:null,cat:"Aero",kit:null};
+const $=q=>document.querySelector(q), $$=q=>[...document.querySelectorAll(q)];
+function step(n){[1,2,3].forEach(i=>$("#step"+i).classList.toggle("on",i===n))}
+function setProgress(p,title,detail){$("#bar").style.width=p+"%";$("#aiTitle").textContent=title;$("#aiDetail").textContent=detail}
+function error(msg){$("#leftError").style.display=msg?"block":"none";$("#leftError").textContent=msg||""}
+function kits(){
+ $("#kits").innerHTML=catalog[state.cat].map((k,i)=>`<button class="kit ${state.kit===k?"on":""}" data-i="${i}"><b>${k.name}</b><small>${k.style} · ${k.price}</small></button>`).join("");
+ $$(".kit").forEach(x=>x.onclick=()=>{state.kit=catalog[state.cat][+x.dataset.i];kits();summary();step(2);$("#render").disabled=!state.file;});
+}
+function summary(){
+ const v=state.vehicle;
+ $("#sumVehicle").textContent=v?`${v.make} ${v.model}`:"—";
+ $("#sumGen").textContent=v?.generation||"—";
+ $("#sumKit").textContent=state.kit?.name||"—";
+ $("#sumStyle").textContent=state.kit?.style||"—";
+ $("#sumFit").textContent=state.kit?.fit||"รอเลือกชุดแต่ง";
+ $("#sumPrice").textContent=state.kit?.price||"—";
+ $("#quote").disabled=!(v&&state.kit);
+}
+async function health(){
+ if(!API_BASE){$("#apiText").textContent="Set backend URL in config.js";return;}
+ try{const r=await fetch(API_BASE+"/health");if(!r.ok)throw 0;$("#apiDot").classList.add("on");$("#apiText").textContent="AI backend online"}catch(e){$("#apiText").textContent="Backend offline / URL incorrect";}
+}
+$("#file").onchange=async e=>{
+ const f=e.target.files?.[0];if(!f)return;
+ error(""); state.file=f;state.original=URL.createObjectURL(f);state.after=null;state.vehicle=null;
+ $("#mainImage").src=state.original;$("#mainImage").style.display="block";$("#empty").style.display="none";
+ $("#before").disabled=false;$("#after").disabled=true;$("#render").disabled=true;$("#stageText").textContent="ANALYZING";
+ $("#status").textContent="AI กำลังวิเคราะห์";$("#confidence").textContent="—";$("#vehicle").textContent="กำลังตรวจรถ…";$("#meta").textContent="กำลังอ่านรายละเอียดจากภาพ";
+ setProgress(45,"AI VISION","Detecting vehicle identity");
+ if(!API_BASE){error("ยังไม่ได้ตั้ง Backend URL ใน config.js");setProgress(0,"BACKEND REQUIRED","Set CARBIZ_API_BASE");return;}
+ try{
+   const fd=new FormData();fd.append("image",f);
+   const r=await fetch(API_BASE+"/api/identify",{method:"POST",body:fd});
+   const d=await r.json();if(!r.ok)throw new Error(d.detail||"Identify failed");
+   state.vehicle=d;
+   $("#vehicle").textContent=`${d.make} ${d.model}`;
+   $("#meta").textContent=[d.year,d.generation,d.body_type,d.color].filter(Boolean).join(" · ");
+   $("#status").textContent="AI identified";
+   $("#confidence").textContent=Math.round((d.confidence||0)*100)+"% confidence";
+   $("#stageText").textContent="KEY VISUAL READY";setProgress(100,"IDENTITY READY",`${d.make} ${d.model}`);
+   setTimeout(()=>$("#bar").style.width="0%",700);summary();step(2);
+ }catch(err){error(err.message);$("#status").textContent="วิเคราะห์ไม่สำเร็จ";setProgress(0,"AI ERROR",err.message);}
+};
+$$("[data-cat]").forEach(b=>b.onclick=()=>{$$("[data-cat]").forEach(x=>x.classList.remove("on"));b.classList.add("on");state.cat=b.dataset.cat;state.kit=null;kits();summary();});
+$("#render").onclick=async()=>{
+ if(!state.file||!state.kit||!state.vehicle)return;
+ error("");$("#render").disabled=true;$("#stageText").textContent="AI RENDERING";setProgress(55,"AI RENDERING","Preserving car identity and editing selected parts");
+ try{
+  const fd=new FormData();fd.append("image",state.file);fd.append("kit",state.kit.name);fd.append("style",state.kit.style);fd.append("vehicle_json",JSON.stringify(state.vehicle));
+  const r=await fetch(API_BASE+"/api/render",{method:"POST",body:fd});
+  const d=await r.json();if(!r.ok)throw new Error(d.detail||"Render failed");
+  state.after=d.image_data_url;$("#mainImage").src=state.after;$("#after").disabled=false;$("#stageText").textContent="AI PREVIEW READY";
+  setProgress(100,"RENDER COMPLETE",state.kit.name);setTimeout(()=>$("#bar").style.width="0%",700);step(3);
+ }catch(err){error(err.message);setProgress(0,"RENDER ERROR",err.message);}finally{$("#render").disabled=false;}
+};
+$("#before").onclick=()=>{if(state.original)$("#mainImage").src=state.original};
+$("#after").onclick=()=>{if(state.after)$("#mainImage").src=state.after};
+$("#quote").onclick=()=>alert(`CarBiz Quote Request\n${state.vehicle.make} ${state.vehicle.model}\n${state.kit.name}\nEstimate: ${state.kit.price}`);
+kits();health();
+</script>
+</body></html>
