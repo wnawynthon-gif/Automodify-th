@@ -14,7 +14,7 @@ VISION_MODEL = os.getenv("VISION_MODEL", "gpt-5.6")
 IMAGE_MODEL = os.getenv("IMAGE_MODEL", "gpt-image-2")
 ALLOWED_ORIGINS = [x.strip() for x in os.getenv("ALLOWED_ORIGINS", "*").split(",") if x.strip()]
 
-app = FastAPI(title="CarBiz AI AutoMod API", version="5.2.0")
+app = FastAPI(title="CarBiz AI AutoMod API", version="5.3.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS if ALLOWED_ORIGINS != ["*"] else ["*"],
@@ -52,7 +52,7 @@ def normalize_json_text(text: str) -> str:
 def health():
     return {
         "ok": True,
-        "service": "carbiz-v5.2-api",
+        "service": "carbiz-v5.3-api",
         "vision_model": VISION_MODEL,
         "image_model": IMAGE_MODEL,
         "openai_key_configured": bool(OPENAI_API_KEY),
@@ -127,11 +127,13 @@ async def render(
 Original subject: {vehicle_name}
 Requested modification package: {kit}
 Requested visual style: {style}
+Vehicle evidence: {json.dumps(vehicle, ensure_ascii=False)}
 
 EDITING RULES:
 - Keep the SAME vehicle identity, body proportions, windows, doors, roofline, headlights and recognizable factory design.
 - Keep the SAME camera angle, perspective, framing, environment, lighting direction and background as the input photo.
-- Change ONLY visually relevant modification parts for the requested package.
+- Change ONLY visually relevant modification parts for the requested package. Do not redesign unrelated factory panels.
+- Treat the named package as a visual preview, not proof that a commercial part physically fits the vehicle.
 - Make modifications physically plausible and professionally installed.
 - Preserve paint unless the requested package explicitly changes wrap/color.
 - Preserve wheel position and tire geometry unless wheels/tyres are the requested modification.
