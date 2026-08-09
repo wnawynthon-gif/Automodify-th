@@ -52,7 +52,7 @@ def normalize_json_text(text: str) -> str:
 def health():
     return {
         "ok": True,
-        "service": "carbiz-v5.1-api",
+        "service": "carbiz-v5.2-api",
         "vision_model": VISION_MODEL,
         "image_model": IMAGE_MODEL,
         "openai_key_configured": bool(OPENAI_API_KEY),
